@@ -1,7 +1,7 @@
 
 <% if show(image) %>
 
-<strong><%= image.user.username %>:</strong><br>
+<strong><%= link_to image.user.username, user_images_path(image.user)%>:</strong><br>
 
 <% if @size =="large" %>
    <%= image_tag image.image.url(:medium) %>

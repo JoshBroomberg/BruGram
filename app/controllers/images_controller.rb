@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
 	def index
-        @images = current_user.images
+        @user = User.find(params[:user_id])
+        @images = @user.images
 	end
 
 	def feed
@@ -31,8 +32,6 @@ class ImagesController < ApplicationController
 	def edit
 		@image = Image.find(params[:id])
 
-	end
-
 	def update
 		@image = Image.find(params[:id])
 		@image.update(image_params)
@@ -55,7 +54,6 @@ class ImagesController < ApplicationController
 
 	end
 
-	private
 	def image_params
  	 params.require(:image).permit(:caption, :public, :image)
     end
@@ -77,7 +75,9 @@ class ImagesController < ApplicationController
 	       			@hashtag.save
 	       		else
 	       			@hashtag = Hashtag.where(hashtag: hash).first
-	       			@image.hashtags << (@hashtag)
+	       			if !@image.hashtags.include?(@hashtag)
+	       				@image.hashtags << (@hashtag)
+	       			end
 
 	       		end
 
@@ -89,5 +89,5 @@ class ImagesController < ApplicationController
         end
     end
 
-
+end
 end
