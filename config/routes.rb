@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
-  get 'comments/new'
-
-  get 'comments/create'
-
-  get 'comments/edit'
-
-  get 'comments/update'
-
-  get 'comments/destroy'
+  
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +16,10 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+  resources :followlinks
+
+  get "/allusers" => "users#index", as: :allusers
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

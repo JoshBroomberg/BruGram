@@ -1,0 +1,13 @@
+<%= user.username %> &nbsp;
+<%= user.email %> &nbsp;
+
+<% if user!= current_user %>
+<% if !current_user.followees.include?(user) %>
+<%= link_to "follow", followlinks_path(:followee_id => user), method: :post%>
+<% else %>
+<%= link_to "unfollow", followlink_path(Followlink.where(user_id: current_user.id, followee_id: user.id)[0]), method: :delete%>
+<% end %>
+<% else %>
+(you, bru...)
+<% end %>
+<br><br>

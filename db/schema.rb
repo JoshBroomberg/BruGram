@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630173159) do
+ActiveRecord::Schema.define(version: 20150630205743) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "image_id"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20150630173159) do
 
   add_index "comments", ["image_id"], name: "index_comments_on_image_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "followlinks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "followee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "hashtags", force: :cascade do |t|
     t.string   "hashtag"

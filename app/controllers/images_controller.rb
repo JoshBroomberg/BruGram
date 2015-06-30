@@ -4,7 +4,10 @@ class ImagesController < ApplicationController
 	end
 
 	def feed
-		@images = Image.all
+		@images = current_user.images
+		current_user.followees.each do |followee|
+			@images+=followee.images
+		end
 	end
 
 	def show

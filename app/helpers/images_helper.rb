@@ -1,8 +1,7 @@
 module ImagesHelper
 	def captionSend image
 		caption = image.caption+" "
-		hashObjArr = image.hashtags
-		.each do |hashtag|
+		image.hashtags.each do |hashtag|
 			caption = caption.gsub("#"+hashtag.hashtag+" ", (link_to "#"+hashtag.hashtag+" ", "/hashtag/#{hashtag.hashtag}"))
 			caption = caption.gsub("#"+hashtag.hashtag+"#", (link_to "#"+hashtag.hashtag+"#", "/hashtag/#{hashtag.hashtag}"))
 		end
