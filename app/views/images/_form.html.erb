@@ -1,0 +1,9 @@
+<%= simple_form_for @image, url: @path do |f| %>
+
+<%= f.input :caption %>
+<%= f.input :public %>
+<%= f.input :image, as: :file %>
+
+<%= f.button :submit %>
+
+<% end %>

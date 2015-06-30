@@ -1,0 +1,31 @@
+<% if @size =="large" %>
+   <%= image_tag image.image.url(:medium) %>
+<% else %>
+   <%= image_tag image.image.url(:thumb) %>
+<% end %>
+
+<br>
+<strong>Caption: </strong><%= image.caption %><br>
+
+
+
+
+<% if @show == true %>
+<% if image.user == current_user %>
+<%= link_to "edit", edit_user_image_path(current_user, image) %>
+<%= link_to "delete", user_image_path(current_user, image), method: :delete, data: {confirm: "Are you sure, bru?"} %>
+
+<% end %>
+<br><br>
+<strong>Comments:</strong>
+<%= render image.comments %>
+
+<% @path = user_image_comments_path %>
+<% @comment = image.comments.new %>
+<%= render "comments/form" %>
+
+<% else %>
+<%= link_to "more...", user_image_path(current_user, image) %><br>
+<% end %>
+
+<br>

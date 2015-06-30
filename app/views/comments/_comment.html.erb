@@ -1,0 +1,8 @@
+<br><br>Commenter: <%= comment.user.username %><br>
+<%= comment.body %><br>
+<% if comment.user == current_user %>
+<%= link_to "edit", edit_user_image_comment_path(current_user, comment.image, comment) %>
+<%= link_to "delete", user_image_comment_path(current_user, comment.image, comment), method: :delete, data: {confirm: "Are you sure, bru?"} %>
+
+<% end %>
+
