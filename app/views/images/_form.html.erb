@@ -1,4 +1,4 @@
-<%= simple_form_for @image, url: @path do |f| %>
+<%= simple_form_for [current_user, @image] do |f| %>
 
 <%= f.input :caption %>
 <%= f.input :public %>

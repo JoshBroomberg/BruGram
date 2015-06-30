@@ -31,6 +31,7 @@ gem "pry-rails"
 gem "omniauth-facebook"
 gem 'simple_form'
 gem "twitter-bootstrap-rails"
+gem 'simple_hashtag'
 #gem "bootstrap-glyphicons" #*= require bootstrap/glyphicons above require_tree in application.css
 
 

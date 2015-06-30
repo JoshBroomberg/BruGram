@@ -4,4 +4,6 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   has_many :comments
+  has_and_belongs_to_many :hashtags
+
 end

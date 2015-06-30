@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get "/users/:id/images/feed" => "images#feed", as: :feed
+  get "/hashtag/:hash" => "images#hash", as: :hashtag
 
   resources :users do
     resources :images do 

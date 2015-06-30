@@ -1,4 +1,4 @@
-<%= simple_form_for @comment, url: @path do |f| %>
+<%= simple_form_for [current_user, @comment.image, @comment] do |f| %>
 <%= f.input :body %>
 <%= f.button :submit %>
 <% end %>

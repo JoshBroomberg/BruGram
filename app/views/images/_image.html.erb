@@ -5,7 +5,7 @@
 <% end %>
 
 <br>
-<strong>Caption: </strong><%= image.caption %><br>
+<strong>Caption: </strong><%= captionSend(image) %><br>
 
 
 
@@ -20,7 +20,7 @@
 <strong>Comments:</strong>
 <%= render image.comments %>
 
-<% @path = user_image_comments_path %>
+
 <% @comment = image.comments.new %>
 <%= render "comments/form" %>
 
