@@ -9,4 +9,17 @@ module ImagesHelper
 		caption = caption[0..caption.length-1]
 		caption.html_safe
 	end
+
+	def show image
+
+	if image.user != current_user
+		if image.read_attribute(:public)
+			return true	
+		end 
+	elsif current_user == image.user
+		return true
+	else
+		return false
+    end
+end
 end

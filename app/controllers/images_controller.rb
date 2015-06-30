@@ -8,6 +8,7 @@ class ImagesController < ApplicationController
 		current_user.followees.each do |followee|
 			@images+=followee.images
 		end
+		@images.shuffle!
 	end
 
 	def show
@@ -35,6 +36,7 @@ class ImagesController < ApplicationController
 	def update
 		@image = Image.find(params[:id])
 		@image.update(image_params)
+		hashtags @image.caption
 		redirect_to user_image_path(current_user,@image)
 	end
 
