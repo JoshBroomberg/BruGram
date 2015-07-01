@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
     current_user.followees.each do |followee|
       @images+=followee.images
     end
-    @images.shuffle!
+    @images
   end
 
   def show
