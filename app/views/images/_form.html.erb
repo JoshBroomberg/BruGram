@@ -1,4 +1,4 @@
-<%= simple_form_for [current_user, @image] do |f| %>
+<%= simple_form_for [current_user, @image],html: { class: "col-md-6 col-md-offset-3"} do |f| %>
 
 <%= f.input :caption %>
 <%= f.input :public %>

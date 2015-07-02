@@ -1,8 +1,16 @@
-<br><br>Commenter: <%= comment.user.username %><br>
-<%= comment.body %>
-<% if comment.user == current_user %><br>
-<%= link_to "edit", edit_user_image_comment_path(current_user, comment.image, comment) %>
-<%= link_to "delete", user_image_comment_path(current_user, comment.image, comment), method: :delete, data: {confirm: "Are you sure, bru?"} %>
+<div class="item  animated bounceInRight row">
 
-<% end %>
+      <div  class="col-sm-6 col-sm-offset-3">
+      <p><%= comment.body %>
+      <% if comment.user == current_user %><br>
+		<%= link_to "edit", edit_user_image_comment_path(current_user, comment.image, comment) %>
+		<%= link_to "delete", user_image_comment_path(current_user, comment.image, comment), method: :delete, data: {confirm: "Are you sure, bru?"} %>
+
+		<% end %>
+      </p>
+      <span><%= comment.user.username %></span>
+      </div>
+      </div>
+</div>
+
 

@@ -1,4 +1,4 @@
-<%= simple_form_for [current_user, @comment.image, @comment] do |f| %>
+<%= simple_form_for [current_user, @comment.image, @comment], html: { class: "col-md-6 col-md-offset-3"} do |f| %>
 <%= f.input :body %>
 <%= f.button :submit %>
 <% end %>

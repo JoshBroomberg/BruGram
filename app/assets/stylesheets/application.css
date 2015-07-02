@@ -11,6 +11,11 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require animate
+ *= require set
+ *= require blueimp-gallery.min
+ *= require animate
+ *= require style
  *= require_self
  */
 

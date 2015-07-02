@@ -1,18 +1,10 @@
 
 <% if show(image) %>
 
-<strong><%= link_to image.user.username, user_images_path(image.user)%>:</strong><br>
 
 <% if @size =="large" %>
-   <%= image_tag image.image.url(:medium) %>
-<% else %>
-   <%= image_tag image.image.url(:thumb) %>
-<% end %>
 
-<br>
-<strong>Caption: </strong><%= captionSend(image) %><br>
-
-
+<%= image_tag image.image.url(:large) %><br><br>
 
 
 <% if @show == true %>
@@ -22,16 +14,43 @@
 
 <% end %>
 <br><br>
+
+<% end %>
+
 <strong>Comments:</strong>
-<%= render image.comments %>
+
+<div id="testimonials" class="container spacer ">
+  <h2 class="text-center  wowload fadeInUp">Comments</h2>
+  <div class="clearfix">    
+    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+  	<div id="carousel-testimonials" class="carousel slide testimonails  wowload fadeInRight" data-ride="carousel">
+    		<div class="carousel-inner"> 
+				<%= render image.comments %>
+			</div>		
+			</div>					
+		</div>
+	</div>
+</div>
 
 
 <% @comment = image.comments.new %>
 <%= render "comments/form" %>
 
+
 <% else %>
-<%= link_to "more...", user_image_path(current_user, image) %><br>
+<figure class="effect-oscar  wowload fadeInUp">
+        <img src=<%= image.image.url(:medium) %>/>
+        <figcaption>
+            <h4><%=link_to image.user.username, user_path(image.user)%></h4>
+            <p><strong>Caption: </strong><%= captionSend(image) %><br>
+            <%=link_to "view", user_image_path(image.user, image)%></p>            
+        </figcaption>
+</figure>
 <% end %>
 
-<br>
+
+
+
+
+
 <% end %>
