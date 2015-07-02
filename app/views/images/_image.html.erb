@@ -41,7 +41,7 @@
 <figure class="effect-oscar  wowload fadeInUp">
         <img src=<%= image.image.url(:medium) %>/>
         <figcaption>
-            <h4><%=link_to image.user.username, user_path(image.user)%></h4>
+            <h4><%=link_to image.user.username, user_images_path(image.user)%></h4>
             <p><strong>Caption: </strong><%= captionSend(image) %><br>
             <%=link_to "view", user_image_path(image.user, image)%></p>            
         </figcaption>
